@@ -47,6 +47,21 @@
   width: 200px;
   margin-left: -200px;
   background: blue;
+  border-top-left-radius: 5px;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
 }
 /* 圣杯布局 */
 
+.right {
+    position: relative;
+    right: -220px;
+    float: right;
+    height: 100px;
+    width: 200px;
+    margin-left: -200px;
+    background: blue;
+    border-top-left-radius: 5px;
+    -webkit-transform:rotate(-3deg);
+            transform:rotate(-3deg); 
+  }

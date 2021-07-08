@@ -18,8 +18,23 @@
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.1.0",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
     "webpack": "^5.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.1.14"
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
   }
 }
