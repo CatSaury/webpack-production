@@ -5,9 +5,3 @@ import '../css/index.css';
 // import '../css/iconfont.css';
 
 console.log(11111);
-
-switch (key) {
-  case 3:
-
-    break;
-}
