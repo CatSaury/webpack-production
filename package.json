@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:staged": "lint-staged"
+  },
+  "pre-commit": "lint:staged",
+  "lint-staged": {
+    "linters": {
+      "src/**/*.{js,jsx,vue}": [ "eslint --ignore-path .gitignore --fix" ]
+    },
+    "ignore": []
   },
   "keywords": [],
   "author": "",
