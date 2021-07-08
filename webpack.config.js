@@ -3,6 +3,7 @@ const { resolve } = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 // 处理样式的loader
 const STYLE_LOADER_LIST = {
@@ -71,9 +72,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    // css单独提取文件存放的目录
     new MiniCssExtractPlugin({
       filename: "css/build.css",
     }),
+    // css压缩插件
+    new OptimizeCssAssetsPlugin()
   ],
   // 生产模式
   mode: "production",
