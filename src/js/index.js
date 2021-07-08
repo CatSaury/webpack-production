@@ -7,7 +7,7 @@ import '../css/index.css';
 console.log(11111);
 
 switch (key) {
-  case 2:
+  case 3:
 
     break;
 }

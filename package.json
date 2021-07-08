@@ -6,9 +6,11 @@
   "scripts": {
     "precommit": "lint-staged"
   },
-  "pre-commit": [
-    "precommit"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
   "lint-staged": {
     "linters": {
       "*.{js,scss}": [
