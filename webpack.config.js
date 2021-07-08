@@ -3,7 +3,10 @@ const { resolve } = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const ESLintWebpackPlugin = require("eslint-webpack-plugin");
+
+process.env.NODE_ENV === 'production'
 
 // 处理样式的loader
 const STYLE_LOADER_LIST = {
@@ -77,7 +80,12 @@ module.exports = {
       filename: "css/build.css",
     }),
     // css压缩插件
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin(),
+    // js 语法检查
+    new ESLintWebpackPlugin({
+      // 会自动修复js语法错误（注意:会更改源文件）
+      fix: true
+    })
   ],
   // 生产模式
   mode: "production",
