@@ -6,6 +6,9 @@
   "scripts": {
     "precommit": "lint-staged"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "lint-staged": {
     "linters": {
       "*.{js,scss}": [
