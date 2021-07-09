@@ -106,6 +106,12 @@ module.exports = {
     // 复制index.html 文件，并将webpack打包的之后文件【css/js】，添加到html中
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      // minify: {
+        // 移除注释
+        // removeComments: true,
+        // 移除空格
+        // collapseWhitespace: true
+      // }
     }),
     // css单独提取文件存放的目录
     new MiniCssExtractPlugin({

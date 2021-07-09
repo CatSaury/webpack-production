@@ -6,3 +6,4 @@
 # 4. js 语法检查(生产环境打包构建)。采用 eslint-webpack-plugin 
 # 5. js 兼容。采用babel-loader 按需加载
 # 6. js 压缩。 mode: 'produciton' 设定为生产环境会默认压缩代码 
+# 7. html 压缩。mode: 'production' 设置为生产环境会默认压缩代码 去除空格，去除注释 
