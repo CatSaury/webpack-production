@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 
-process.env.NODE_ENV === 'production'
+process.env.NODE_ENV === "production";
 
 // 处理样式的loader
 const STYLE_LOADER_LIST = {
@@ -47,16 +47,17 @@ module.exports = {
   // loader【装载器】
   module: {
     rules: [
-      // 将css从js中提取出来，单独文件
+      // 处理css
       {
         test: /\.css$/,
         use: [
           // 提取 js 中的 css 成单独文件
           MiniCssExtractPlugin.loader,
           STYLE_LOADER_LIST.CSS_LOADER,
-          STYLE_LOADER_LIST.POSTCSS_LOADER
+          STYLE_LOADER_LIST.POSTCSS_LOADER,
         ],
       },
+      // 处理less
       {
         test: /\.less$/,
         use: [
@@ -66,6 +67,37 @@ module.exports = {
           STYLE_LOADER_LIST.POSTCSS_LOADER,
           STYLE_LOADER_LIST.LESS_LOADER,
         ],
+      },
+      // 处理js
+      {
+        test: /\.js$/,
+        // 排除node_modules, 只检查自己写的代码
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: [
+            [
+              // 只能处理一些常见的js语法
+              "@babel/preset-env",
+              {
+                // 添加按需加载
+                useBuiltIns: "usage",
+                // 指定core.js 的版本
+                corejs: {
+                  version: 3,
+                },
+                // 指定兼容性做到哪个版本浏览器
+                targets: {
+                  chrome: "60",
+                  firefox: "60",
+                  ie: "9",
+                  safari: "10",
+                  edge: "17",
+                },
+              },
+            ],
+          ],
+        },
       },
     ],
   },
@@ -84,8 +116,8 @@ module.exports = {
     // js 语法检查
     new ESLintWebpackPlugin({
       // 会自动修复js语法错误（注意:会更改源文件）
-      fix: true
-    })
+      fix: true,
+    }),
   ],
   // 生产模式
   mode: "production",
